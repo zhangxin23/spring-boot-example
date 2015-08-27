@@ -1,4 +1,4 @@
-package org.sangbox.springboot.mapper;
+package org.sandbox.springboot.mapper;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Delete;
@@ -8,8 +8,8 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
-import org.sangbox.springboot.model.Persion;
-import org.sangbox.springboot.model.PersionExample;
+import org.sandbox.springboot.model.PersionExample;
+import org.sandbox.springboot.model.Persion;
 
 public interface PersionMapper {
     int countByExample(PersionExample example);

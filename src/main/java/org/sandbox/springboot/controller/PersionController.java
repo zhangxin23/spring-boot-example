@@ -1,7 +1,7 @@
-package org.sangbox.springboot.controller;
+package org.sandbox.springboot.controller;
 
-import org.sangbox.springboot.dao.PersionDao;
-import org.sangbox.springboot.model.Persion;
+import org.sandbox.springboot.dao.PersionDao;
+import org.sandbox.springboot.model.Persion;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;

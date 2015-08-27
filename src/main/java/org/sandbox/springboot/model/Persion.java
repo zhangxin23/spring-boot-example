@@ -1,4 +1,4 @@
-package org.sangbox.springboot.model;
+package org.sandbox.springboot.model;
 
 public class Persion {
     private Integer id;

@@ -1,10 +1,10 @@
-package org.sangbox.springboot.dao;
+package org.sandbox.springboot.dao;
 
-import org.sangbox.springboot.mapper.PersionMapper;
-import org.sangbox.springboot.model.Persion;
-import org.sangbox.springboot.model.PersionExample;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.sandbox.springboot.mapper.PersionMapper;
+import org.sandbox.springboot.model.Persion;
+import org.sandbox.springboot.model.PersionExample;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class PersionDao {
 
-    @Autowired
+    @Resource(name = "persionMapper")
     private PersionMapper persionMapper;
 
     public int insert(Persion persion) {

@@ -1,4 +1,4 @@
-package org.sangbox.springboot.model;
+package org.sandbox.springboot.model;
 
 import java.util.ArrayList;
 import java.util.List;

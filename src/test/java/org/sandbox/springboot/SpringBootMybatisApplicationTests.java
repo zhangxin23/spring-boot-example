@@ -1,4 +1,4 @@
-package org.sangbox.springboot;
+package org.sandbox.springboot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
