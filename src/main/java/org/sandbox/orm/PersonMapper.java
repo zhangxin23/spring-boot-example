@@ -1,4 +1,4 @@
-package org.sandbox.springboot.mapper;
+package org.sandbox.orm;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Delete;
@@ -8,54 +8,54 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
-import org.sandbox.springboot.model.PersionExample;
-import org.sandbox.springboot.model.Persion;
+import org.sandbox.orm.Person;
+import org.sandbox.orm.PersonExample;
 
-public interface PersionMapper {
-    int countByExample(PersionExample example);
+public interface PersonMapper {
+    int countByExample(PersonExample example);
 
-    int deleteByExample(PersionExample example);
+    int deleteByExample(PersonExample example);
 
     @Delete({
-        "delete from persion",
+        "delete from person",
         "where id = #{id,jdbcType=INTEGER}"
     })
     int deleteByPrimaryKey(Integer id);
 
     @Insert({
-        "insert into persion (name, age, ",
+        "insert into person (name, age, ",
         "country)",
         "values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, ",
         "#{country,jdbcType=VARCHAR})"
     })
     @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Integer.class)
-    int insert(Persion record);
+    int insert(Person record);
 
-    int insertSelective(Persion record);
+    int insertSelective(Person record);
 
-    List<Persion> selectByExample(PersionExample example);
+    List<Person> selectByExample(PersonExample example);
 
     @Select({
         "select",
         "id, name, age, country",
-        "from persion",
+        "from person",
         "where id = #{id,jdbcType=INTEGER}"
     })
     @ResultMap("BaseResultMap")
-    Persion selectByPrimaryKey(Integer id);
+    Person selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Persion record, @Param("example") PersionExample example);
+    int updateByExampleSelective(@Param("record") Person record, @Param("example") PersonExample example);
 
-    int updateByExample(@Param("record") Persion record, @Param("example") PersionExample example);
+    int updateByExample(@Param("record") Person record, @Param("example") PersonExample example);
 
-    int updateByPrimaryKeySelective(Persion record);
+    int updateByPrimaryKeySelective(Person record);
 
     @Update({
-        "update persion",
+        "update person",
         "set name = #{name,jdbcType=VARCHAR},",
           "age = #{age,jdbcType=INTEGER},",
           "country = #{country,jdbcType=VARCHAR}",
         "where id = #{id,jdbcType=INTEGER}"
     })
-    int updateByPrimaryKey(Persion record);
+    int updateByPrimaryKey(Person record);
 }

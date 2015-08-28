@@ -16,23 +16,23 @@
                         password="mysql">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="org.sangbox.springboot.model"
+        <javaModelGenerator targetPackage="org.sandbox.orm"
                             targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mybatis"
-                         targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="org.sandbox.orm"
+                         targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator type="MIXEDMAPPER" targetPackage="org.sangbox.springboot.mapper"
+        <javaClientGenerator type="MIXEDMAPPER" targetPackage="org.sandbox.orm"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="persion" schema="test">
+        <table tableName="person" schema="test">
             <generatedKey column="id" sqlStatement="MySql" identity="true" />
         </table>
 

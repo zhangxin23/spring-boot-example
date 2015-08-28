@@ -1,4 +1,4 @@
-package org.sandbox.springboot;
+package org.sandbox;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

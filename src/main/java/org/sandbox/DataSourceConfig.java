@@ -1,11 +1,9 @@
-package org.sandbox.springboot.config;
+package org.sandbox;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
-import org.mybatis.spring.mapper.MapperFactoryBean;
-import org.sandbox.springboot.mapper.PersionMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -13,15 +11,13 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
-
 /**
  * Created by zhangxin on 15/8/26.
  */
 
 @Configuration
-@MapperScan(basePackages = "org.sandbox.springboot.mapper")
+@MapperScan(basePackages = "org.sandbox.orm")
 public class DataSourceConfig {
-
     @Bean
     public DataSource dataSource() throws Exception {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
@@ -45,26 +41,11 @@ public class DataSourceConfig {
         return new DataSourceTransactionManager(dataSource());
     }
 
-//    @Bean
-//    public PlatformTransactionManager transactionManager() {
-//        return new DataSourceTransactionManager(dataSource());
-//    }
-
     @Bean
-    public SqlSessionFactory sqlSessionFactory() throws Exception {
-        SqlSessionFactoryBean sqlSessionFactoryBean =  new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource());
-        ClassPathResource resource = new ClassPathResource("mybatis/PersionMapper.xml");
-        sqlSessionFactoryBean.setMapperLocations(new ClassPathResource[]{resource});
-
-        return sqlSessionFactoryBean.getObject();
-    }
-
-    @Bean
-    public MapperFactoryBean persionMapper() throws Exception {
-        MapperFactoryBean mapperFactoryBean = new MapperFactoryBean();
-        mapperFactoryBean.setMapperInterface(PersionMapper.class);
-        mapperFactoryBean.setSqlSessionFactory(sqlSessionFactory());
-        return mapperFactoryBean;
+    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
+        final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource);
+        sessionFactory.setMapperLocations(new ClassPathResource[] {new ClassPathResource("mysql/PersonMapper.xml")});
+        return sessionFactory.getObject();
     }
 }

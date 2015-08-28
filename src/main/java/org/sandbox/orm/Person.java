@@ -1,6 +1,6 @@
-package org.sandbox.springboot.model;
+package org.sandbox.orm;
 
-public class Persion {
+public class Person {
     private Integer id;
 
     private String name;

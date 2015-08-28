@@ -1,16 +1,16 @@
-package org.sandbox.springboot.model;
+package org.sandbox.orm;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersionExample {
+public class PersonExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public PersionExample() {
+    public PersonExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
