@@ -38,13 +38,13 @@ public class PersonService {
     }
 
     public int delete(int id) {
-        logger.debug("delete person, id is {}", id);
+        logger.info("delete person, id is " + id);
 
         return personMapper.deleteByPrimaryKey(id);
     }
 
     public Person select(int id) {
-        logger.debug("select person, id is {}", id);
+        logger.info("select person, id is " + id);
 
         PersonExample example = new PersonExample();
         PersonExample.Criteria criteria = example.createCriteria();
