@@ -21,6 +21,18 @@ public class PersonService {
         return personMapper.insertSelective(person);
     }
 
+    public int update(Person person) {
+        PersonExample example = new PersonExample();
+        PersonExample.Criteria criteria = example.createCriteria();
+        criteria.andIdEqualTo(person.getId());
+
+        return personMapper.updateByExample(person, example);
+    }
+
+    public int delete(int id) {
+        return personMapper.deleteByPrimaryKey(id);
+    }
+
     public Person select(int id) {
         PersonExample example = new PersonExample();
         PersonExample.Criteria criteria = example.createCriteria();
