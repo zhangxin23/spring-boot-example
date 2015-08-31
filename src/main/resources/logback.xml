@@ -36,11 +36,11 @@
         </rollingPolicy>
     </appender>
 
-    <logger name="org.springframework" level="DEBUG"/>
-    <logger name="org.apache" level="DEBUG"/>
-    <logger name="org.mybatis.spring" level="DEBUG"/>
+    <!--<logger name="org.springframework" level="DEBUG"/>-->
+    <!--<logger name="org.apache" level="DEBUG"/>-->
+    <!--<logger name="org.mybatis.spring" level="DEBUG"/>-->
 
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="Console"/>
         <appender-ref ref="LogFile"/>
         <appender-ref ref="ErrorFile"/>
