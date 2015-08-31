@@ -22,13 +22,13 @@ public class PersonService {
     private PersonMapper personMapper;
 
     public int insert(Person person) {
-        logger.debug("add person");
+        logger.info("add person");
 
         return personMapper.insertSelective(person);
     }
 
     public int update(Person person) {
-        logger.debug("update person");
+        logger.info("update person");
 
         PersonExample example = new PersonExample();
         PersonExample.Criteria criteria = example.createCriteria();
