@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by zhangxin on 15/8/27.
  */
 @RestController
-@RequestMapping(value = "v1")
+@RequestMapping(value = "/app/v1")
 public class PersonController {
     @Autowired
     private PersonService personService;

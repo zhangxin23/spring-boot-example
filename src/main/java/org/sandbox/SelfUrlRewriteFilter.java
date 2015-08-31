@@ -12,14 +12,12 @@ import java.io.FileInputStream;
  * Date:   15-8-29
  */
 public class SelfUrlRewriteFilter extends UrlRewriteFilter {
-
     private UrlRewriter urlRewriter;
 
     @Override
     public void loadUrlRewriter(FilterConfig filterConfig) throws ServletException {
         try {
             FileInputStream inputStream = new FileInputStream("/home/zhangxin/document/github/spring-boot-mybatis/src/main/resources/urlrewrite.xml");
-
             Conf conf1 = new Conf(filterConfig.getServletContext(), inputStream, "urlrewrite.xml", "");
             urlRewriter = new UrlRewriter(conf1);
         } catch (Exception e) {
