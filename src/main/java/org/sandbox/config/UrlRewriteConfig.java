@@ -1,16 +1,12 @@
-package org.sandbox;
+package org.sandbox.config;
 
-import org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.DispatcherServlet;
-import org.tuckey.web.filters.urlrewrite.UrlRewriteFilter;
 
 import javax.servlet.DispatcherType;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Author: zhangxin
@@ -18,15 +14,13 @@ import java.util.Map;
  */
 @Configuration
 public class UrlRewriteConfig {
+
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-        registrationBean.setFilter(new UrlRewriteFilter());
+        registrationBean.setFilter(new CustomUrlRewriteFilter());
         registrationBean.addUrlPatterns("/*");
         registrationBean.setDispatcherTypes(DispatcherType.REQUEST);
-        Map<String, String> initParameters = new HashMap<>();
-        initParameters.put("confPath", "urlrewrite.xml");
-        registrationBean.setInitParameters(initParameters);
 
         return registrationBean;
     }
