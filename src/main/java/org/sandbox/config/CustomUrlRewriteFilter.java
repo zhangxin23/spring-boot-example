@@ -18,8 +18,6 @@ public class CustomUrlRewriteFilter extends UrlRewriteFilter {
     @Override
     public void loadUrlRewriter(FilterConfig filterConfig) throws ServletException {
         try {
-//            FileInputStream inputStream = new FileInputStream("../resources/urlrewrite.xml");
-
             InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("urlrewrite.xml");
             Conf conf1 = new Conf(filterConfig.getServletContext(), inputStream, "urlrewrite.xml", "");
             urlRewriter = new UrlRewriter(conf1);

@@ -14,10 +14,7 @@ public class SpringBootMybatisApplication extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         // Customize the application or call application.sources(...) to add sources
-        // Since our example is itself a @Configuration class we actually don't
-        // need to override this method.
-
-        application.sources(SpringBootMybatisApplication.class);
+        // application.sources(SpringBootMybatisApplication.class);
         return application;
     }
 }
