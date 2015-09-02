@@ -40,4 +40,14 @@ public class Person {
     public void setCountry(String country) {
         this.country = country == null ? null : country.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }
