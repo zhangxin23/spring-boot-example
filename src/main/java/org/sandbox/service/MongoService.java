@@ -28,4 +28,15 @@ public class MongoService {
     public void insert(String firstName, String lastName) {
         repository.save(new Customer(firstName, lastName));
     }
+
+    public void delete(String id) {
+        repository.delete(id);
+    }
+
+    public void update(String id, String firstName, String lastName) {
+        Customer customer = repository.findOne(id);
+        customer.setFirstName(firstName);
+        customer.setLastName(lastName);
+        repository.save(customer);
+    }
 }
