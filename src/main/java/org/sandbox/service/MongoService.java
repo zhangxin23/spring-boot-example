@@ -24,4 +24,8 @@ public class MongoService {
     public List<Customer> getCustomerByLastName(String lastName) {
         return repository.findByLastName(lastName);
     }
+
+    public void insert(String firstName, String lastName) {
+        repository.save(new Customer(firstName, lastName));
+    }
 }

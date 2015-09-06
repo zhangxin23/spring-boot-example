@@ -23,4 +23,10 @@ public class MongoController {
         Customer customer = mongoService.getCustomerByFirstName(firstName);
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "customers", method = RequestMethod.POST)
+    public ResponseEntity<String> addCustomer(@RequestParam("firstName")String firstName, @RequestParam("lastName")String lastName) {
+        mongoService.insert(firstName, lastName);
+        return new ResponseEntity<>("insert successfully", HttpStatus.OK);
+    }
 }
