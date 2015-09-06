@@ -86,6 +86,8 @@ public class ControllerTest {
 
     @Test
     public void testPersonExchangePut() {
+        //ToDo 400 Bad request
+
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("name", "hero");
         params.add("age", "1");
@@ -105,6 +107,8 @@ public class ControllerTest {
 
     @Test
     public void testPersonUpdate() {
+        //ToDo 400 Bad request
+
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("name", "superman");
         params.add("age", "30");
