@@ -12,7 +12,6 @@ import javax.jms.Queue;
  * Date:   15-9-7
  */
 @Configuration
-@EnableJms
 public class JmsConfig {
 
     @Bean
