@@ -8,7 +8,7 @@ import java.util.List;
  * Author: zhangxin
  * Date:   15-9-1
  */
-public interface CustomerRepository extends MongoRepository<Customer, String> {
+public interface CustomerRepository extends MongoRepository<Customer, String>, CustomerRepositoryCustom {
     public Customer findByFirstName(String firstName);
     public List<Customer> findByLastName(String lastName);
 }

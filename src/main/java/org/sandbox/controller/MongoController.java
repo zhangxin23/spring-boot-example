@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Author: zhangxin
  * Date:   15-9-1
@@ -22,6 +24,12 @@ public class MongoController {
     public ResponseEntity<?> getCustomersByFirstName(@PathVariable("firstName")String firstName) {
         Customer customer = mongoService.getCustomerByFirstName(firstName);
         return new ResponseEntity<>(customer, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "customers/lastname/{lastName}", method = RequestMethod.GET)
+    public ResponseEntity<?> getCustomersByLastName(@PathVariable("lastName")String lastName) {
+        List<Customer> customers = mongoService.getCustomerByLastName(lastName);
+        return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
     @RequestMapping(value = "customers", method = RequestMethod.POST)
