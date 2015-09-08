@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -15,6 +16,7 @@ import java.util.List;
  * Date:   15-8-28
  */
 @Service
+@Transactional
 public class PersonService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -24,7 +26,12 @@ public class PersonService {
     public int insert(Person person) {
         logger.info("add person");
 
-        return personMapper.insertSelective(person);
+        personMapper.insertSelective(person);
+
+        //为了测试事务回滚
+        //throw new IllegalArgumentException("roll back");
+
+        return 1;
     }
 
     public int update(Person person) {
