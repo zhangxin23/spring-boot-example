@@ -13,11 +13,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class SpringBootMybatisApplication {
 
     public static void main(String[] args) {
-        //需要放到一个能起作用的上下文中。
-        SecurityContextHolder.getContext().setAuthentication(
-                new UsernamePasswordAuthenticationToken("user", "123456", AuthorityUtils
-                        .commaSeparatedStringToAuthorityList("ROLE_USER")));
-
         SpringApplication.run(SpringBootMybatisApplication.class, args);
     }
 

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SecurityService {
 
-    @Secured("ROLE_USER")
+    @Secured("USER_ROLE")
     public String secure() {
         return "Hello Security";
     }
