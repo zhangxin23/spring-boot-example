@@ -2,6 +2,8 @@ package org.sandbox.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -21,6 +23,10 @@ import org.springframework.security.web.authentication.www.DigestAuthenticationF
 @EnableWebMvcSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    /**
+     * Digest Authentication
+     * */
 
     @Bean
     public DigestAuthenticationEntryPoint digestEntryPoint() {
@@ -71,4 +77,37 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
     }
+
+    /**
+     * Basic Authentication
+     * */
+
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication()
+//                .withUser("test").password("test").roles("USER_ROLE");
+//    }
+//
+//    @Override
+//    @Order(Ordered.HIGHEST_PRECEDENCE)
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//                .and()
+//             .authorizeRequests()
+//                .antMatchers("/demo/v1/persons/**", "/demo/mongo/customers/**").permitAll()
+//                .antMatchers("/demo/security/**").authenticated()
+//                .and()
+//             .httpBasic()
+//                .realmName("Spring Demo")
+//                .and()
+//             .csrf()
+//                .disable();
+//    }
+//
+//    @Override
+//    @Bean
+//    protected AuthenticationManager authenticationManager() throws Exception {
+//        return super.authenticationManager();
+//    }
 }

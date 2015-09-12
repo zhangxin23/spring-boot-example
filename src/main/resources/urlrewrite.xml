@@ -43,10 +43,10 @@
     </rule>
     <rule>
         <from>/**</from>
-        <to>/demo/$1</to>
+        <to>/$1</to>
     </rule>
     <outbound-rule>
-        <from>/demo/**</from>
+        <from>/**</from>
         <to>/$1</to>
     </outbound-rule>
 </urlrewrite>
