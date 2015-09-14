@@ -21,5 +21,4 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
             	.and()
             .authorizeRequests().antMatchers("/demo/oauth2/**").authenticated();
 	}
-	
 }

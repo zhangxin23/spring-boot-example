@@ -5,7 +5,6 @@ import org.tuckey.web.filters.urlrewrite.UrlRewriteFilter;
 import org.tuckey.web.filters.urlrewrite.UrlRewriter;
 
 import javax.servlet.*;
-import java.io.FileInputStream;
 import java.io.InputStream;
 
 /**
