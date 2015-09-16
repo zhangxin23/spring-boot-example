@@ -1,6 +1,7 @@
 package org.sandbox.service;
 
 import org.sandbox.orm.Person;
+import org.sandbox.orm.PersonDao;
 import org.sandbox.orm.PersonExample;
 import org.sandbox.orm.PersonMapper;
 import org.slf4j.Logger;
@@ -22,6 +23,9 @@ public class PersonService {
 
     @Autowired
     private PersonMapper personMapper;
+
+    @Autowired
+    private PersonDao personDao;
 
     public int insert(Person person) {
         logger.info("add person");
@@ -51,15 +55,16 @@ public class PersonService {
     }
 
     public Person select(int id) {
-        logger.info("select person, id is " + id);
-
-        PersonExample example = new PersonExample();
-        PersonExample.Criteria criteria = example.createCriteria();
-        criteria.andIdEqualTo(id);
-        List<Person> persons = personMapper.selectByExample(example);
-        if(persons != null && persons.size() > 0) {
-            return persons.get(0);
-        }
-        return null;
+//        logger.info("select person, id is " + id);
+//
+//        PersonExample example = new PersonExample();
+//        PersonExample.Criteria criteria = example.createCriteria();
+//        criteria.andIdEqualTo(id);
+//        List<Person> persons = personMapper.selectByExample(example);
+//        if(persons != null && persons.size() > 0) {
+//            return persons.get(0);
+//        }
+//        return null;
+        return personDao.select(id);
     }
 }
