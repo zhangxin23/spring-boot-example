@@ -15,6 +15,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.security.web.authentication.www.DigestAuthenticationEntryPoint;
 import org.springframework.security.web.authentication.www.DigestAuthenticationFilter;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 /**
  * Created by zhangxin on 15/9/10.
@@ -71,12 +73,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .addFilterAfter(digestFilter(), BasicAuthenticationFilter.class)
                 .csrf().disable();
+//            .csrf().csrfTokenRepository(csrfTokenRepository());
     }
 
     @Override
     @Bean
     protected AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
+    }
+
+    private CsrfTokenRepository csrfTokenRepository()
+    {
+        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+        repository.setSessionAttributeName("_csrf");
+        return repository;
     }
 
     /**
