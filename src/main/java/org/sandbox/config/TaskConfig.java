@@ -12,7 +12,7 @@ import java.util.Date;
  * Date:   15-9-15
  */
 @Component
-@EnableScheduling
+//@EnableScheduling
 public class TaskConfig {
     private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
     private static int count = 0;

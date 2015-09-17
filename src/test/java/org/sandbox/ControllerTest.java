@@ -21,7 +21,7 @@ import java.util.Map;
  * Date:   15-9-2
  */
 public class ControllerTest {
-    private static final String PREFIX_URI = "http://localhost:8080/v1/";
+    private static final String PREFIX_URI = "http://localhost:8080/demo/v1/";
 
     private RestTemplate restTemplate = new RestTemplate();
 

@@ -69,7 +69,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/demo/v1/persons/**", "/demo/mongo/customers/**").permitAll()
                 .antMatchers("/demo/security/**").authenticated()
                 .and()
-            .addFilterAfter(digestFilter(), BasicAuthenticationFilter.class);
+            .addFilterAfter(digestFilter(), BasicAuthenticationFilter.class)
+                .csrf().disable();
     }
 
     @Override
