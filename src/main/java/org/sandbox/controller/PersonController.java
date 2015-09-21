@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by zhangxin on 15/8/27.
  */
 @RestController
-@RequestMapping(value = "/demo/v1")
+@RequestMapping(value = "/demo/v1/")
 @Api(value = "person", description = "Spring Boot Example Persion Controller")
 public class PersonController {
     @Autowired
