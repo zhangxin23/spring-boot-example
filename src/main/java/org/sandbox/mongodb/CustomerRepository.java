@@ -9,6 +9,6 @@ import java.util.List;
  * Date:   15-9-1
  */
 public interface CustomerRepository extends MongoRepository<Customer, String>, CustomerRepositoryCustom {
-    public Customer findByFirstName(String firstName);
-    public List<Customer> findByLastName(String lastName);
+    Customer findByFirstName(String firstName);
+    List<Customer> findByLastName(String lastName);
 }

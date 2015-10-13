@@ -28,6 +28,7 @@ public class RedisConfig {
         jedisConnectionFactory.setHostName("127.0.0.1");
         jedisConnectionFactory.setPort(6379);
         jedisConnectionFactory.setDatabase(1);
+        jedisConnectionFactory.setPassword("1234567890");
         return jedisConnectionFactory;
     }
 
